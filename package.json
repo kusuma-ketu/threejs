@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "five-server": "^0.1.9"
+    "five-server": "^0.1.9",
+    "three": "^0.178.0"
   }
 }

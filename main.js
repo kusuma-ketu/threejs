@@ -14,11 +14,31 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
+    //background
+  
+
     // Create a cube
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
+
+    //lighting
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(1,1,1);
+    scene.add(light);
+
+    const ambient = new THREE.AmbientLight(0x404040); // Soft white light
+    scene.add(ambient);
+
+    //background 
+    const loader = new THREE.TextureLoader();
+    loader.load("assets/miquella-wolves.webp", texture => {
+        scene.background = texture;
+    });
+
+
+    scene.background = new THREE.Color(0x22222);
 
     // Animation loop
     function animate() {
